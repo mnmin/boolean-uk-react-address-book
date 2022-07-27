@@ -10,10 +10,19 @@ export default function App() {
   
   //TODO: Load all contacts on useEffect when component first renders
 
-  useEffect(() => {
+  const fetchContactsFromDB = () => {
+    //fetches all contacts via get request
+    fetch(`http://localhost:4000/contacts`)
+      .then((res) => res.json())
+      .then((data) => { 
+        console.log("data", data)
+        setContacts(data)
+      });
+  }
 
-    console.log("fetching data")
-  })
+  useEffect(() => {
+    fetchContactsFromDB()
+  }, []); 
 
   return (
     <>
@@ -33,10 +42,10 @@ export default function App() {
         <Routes>
           <Route
           path="/addNewContact"
-          element={<ContactsAdd />} />
+          element={<ContactsAdd setContacts={setContacts} contacts={contacts} />} />
           <Route
           path="/contactsList"
-          element={<ContactsView />} />
+          element={<ContactsList contacts={contacts} />} />
         </Routes>
       </main>
     </>
