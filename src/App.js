@@ -24,14 +24,19 @@ export default function App() {
           <li>
             <Link to="/contactsList">Contacts List</Link>
           </li>
-          <li>Add New Contact</li>
+          <li>
+            <Link to="/addNewContact">Add New Contact</Link> 
+            </li>
         </ul>
       </nav>
       <main>
         <Routes>
           <Route
-          path="/contactsList"
+          path="/addNewContact"
           element={<ContactsAdd />} />
+          <Route
+          path="/contactsList"
+          element={<ContactsView />} />
         </Routes>
       </main>
     </>
