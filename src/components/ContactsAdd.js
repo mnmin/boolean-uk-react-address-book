@@ -20,6 +20,7 @@ function ContactsAdd(props) {
   // state for storing the form's field values
   const [newContact, setNewContact] = useState(initialAddressBookState)
   
+  const navigate = useNavigate()
   //console.log("contacts", contacts)
 
   const reset = () => {
@@ -44,8 +45,9 @@ function ContactsAdd(props) {
       console.log("POSTED new contact:", data)
       setContacts( [...contacts, data])
       reset()
+      navigate("/contactsList/")
     });
-    
+
   }
   
   function handleNewContactChange(event) {
@@ -81,7 +83,7 @@ function ContactsAdd(props) {
       <input id="twitter" name="twitter" type="text" onChange={handleNewContactChange} value={newContact.twitter} required/>
 
       <div className="actions-section">
-        <button className="button blue" type="submit">
+        <button className="button blue" type="submit" >
           Create
         </button>
       </div>
