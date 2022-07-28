@@ -20,6 +20,16 @@
       "street": "1 avenue",
       "city": "london",
       "id": 3
+    },
+    {
+      "firstName": "James",
+      "lastName": "Power",
+      "street": "31 street",
+      "city": "London",
+      "email": "J.P@gmail.com",
+      "linkedIn": "JPower",
+      "twitter": "James.Power.1",
+      "id": 4
     }
   ]
 }

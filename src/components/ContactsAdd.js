@@ -6,6 +6,11 @@ const initialAddressBookState = {
   lastName: "",
   street: "",
   city: "",
+  email: "",
+  linkedIn: "",
+  twitter: "",
+
+
 }
 
 function ContactsAdd(props) {
@@ -65,6 +70,15 @@ function ContactsAdd(props) {
 
       <label htmlFor="city">City:</label>
       <input id="city" name="city" type="text" onChange={handleNewContactChange} value={newContact.city} required/>
+
+      <label htmlFor="email">Email:</label>
+      <input id="email" name="email" type="text" onChange={handleNewContactChange} value={newContact.email} required/>
+
+      <label htmlFor="linkedIn">LinkedIn:</label>
+      <input id="linkedIn" name="linkedIn" type="text" onChange={handleNewContactChange} value={newContact.linkedIn} required/>
+
+      <label htmlFor="twitter">Twitter:</label>
+      <input id="twitter" name="twitter" type="text" onChange={handleNewContactChange} value={newContact.twitter} required/>
 
       <div className="actions-section">
         <button className="button blue" type="submit">
