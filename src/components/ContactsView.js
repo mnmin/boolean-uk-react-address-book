@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useLocation } from "react-router-dom"
 
 function ContactsView() {
   const [contact, setContact] = useState(false)
@@ -8,9 +8,17 @@ function ContactsView() {
   //With useEffect, load the contact when params changes
   //and update contact state
 
-  const {id} = useParams()
+  const { id } = useParams()
+  const location = useLocation()
 
-  
+  console.log("view contacts", {contact, location})
+
+  useEffect(() => {
+    if(location.state) {
+      const {contact} = location.state
+      setContact(contact)
+    }
+  }, [location])
 
   if (!contact) {
     return <p>Loading</p>

@@ -47,7 +47,7 @@ export default function App() {
           path="/contactsList"
           element={<ContactsList contacts={contacts} />} />
           <Route
-            path="/ContactsView/:id"
+            path="/contacts/:id"
             element={<ContactsView contacts={contacts}/>} />
         </Routes>
       </main>

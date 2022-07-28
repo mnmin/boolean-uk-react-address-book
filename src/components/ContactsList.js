@@ -17,7 +17,7 @@ function ContactsList(props) {
         {contacts.map((contact, index) => {
           const { firstName, lastName } = contact
           return (
-            <li className="contact" key={index}>
+            <li className="contacts" key={index}>
               <p>
                 {firstName} {lastName}
               </p>

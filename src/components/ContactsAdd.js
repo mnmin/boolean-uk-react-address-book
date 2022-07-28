@@ -15,9 +15,7 @@ function ContactsAdd(props) {
   // state for storing the form's field values
   const [newContact, setNewContact] = useState(initialAddressBookState)
   
-  
-
-  console.log("contacts", contacts)
+  //console.log("contacts", contacts)
 
   const reset = () => {
     setNewContact(initialAddressBookState)
@@ -44,7 +42,7 @@ function ContactsAdd(props) {
     });
     
   }
-  // reset fuction set new contact to initalAdressBoot State + add value to input fields.
+  
   function handleNewContactChange(event) {
     const inputName = event.target.name
     const inputValue = event.target.value
