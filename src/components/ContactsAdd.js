@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const initialAddressBookState = {
   firstName: "",
@@ -10,23 +10,18 @@ const initialAddressBookState = {
 
 function ContactsAdd(props) {
 
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
   const { setContacts, contacts } = props
-  //const [addNewContacts, setAddNewContacts] = useState([])
 
   // state for storing the form's field values
   const [newContact, setNewContact] = useState(initialAddressBookState)
   
+  
+
   console.log("contacts", contacts)
 
-  
-  /*
-  const addContact = (contact) => {
-    setAddNewContacts([...addNewContacts, contact])
+  const reset = () => {
+    setNewContact(initialAddressBookState)
   }
-  */
 
   const submitForm = (event) => {
     event.preventDefault();
@@ -44,13 +39,12 @@ function ContactsAdd(props) {
     .then((res) => res.json())
     .then((data) => { 
       console.log("POSTED new contact:", data)
-      setContacts([...contacts, data])
-      //setAddNewContacts(data)
+      setContacts( [...contacts, data])
+      reset()
     });
-    // on POST request success, update contacts list
     
   }
-
+  // reset fuction set new contact to initalAdressBoot State + add value to input fields.
   function handleNewContactChange(event) {
     const inputName = event.target.name
     const inputValue = event.target.value
@@ -63,16 +57,16 @@ function ContactsAdd(props) {
       <h2>Create Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
-      <input id="firstName" name="firstName" type="text" onChange={handleNewContactChange} required />
-
+      <input id="firstName" name="firstName" type="text" onChange={handleNewContactChange} value={newContact.firstName} required />
+      
       <label htmlFor="lastName">Last Name:</label>
-      <input id="lastName" name="lastName" type="text" onChange={handleNewContactChange} required/>
+      <input id="lastName" name="lastName" type="text" onChange={handleNewContactChange} value={newContact.lastName} required/>
 
       <label htmlFor="street">Street:</label>
-      <input id="street" name="street" type="text" onChange={handleNewContactChange} required/>
+      <input id="street" name="street" type="text" onChange={handleNewContactChange} value={newContact.street} required/>
 
       <label htmlFor="city">City:</label>
-      <input id="city" name="city" type="text" onChange={handleNewContactChange} required/>
+      <input id="city" name="city" type="text" onChange={handleNewContactChange} value={newContact.city} required/>
 
       <div className="actions-section">
         <button className="button blue" type="submit">

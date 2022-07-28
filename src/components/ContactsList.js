@@ -6,6 +6,8 @@ function ContactsList(props) {
   //"contacts" must be passed as prop to this component
   const { contacts } = props
 
+
+
   return (
     <>
       <header>
@@ -21,7 +23,10 @@ function ContactsList(props) {
               </p>
               <p>
                 { /** TODO: Make a Link here to view contact */}
-                View
+                
+                <Link to={`/contacts/${contact.id}`} state={{ contact }}>view</Link>
+                
+                
               </p>
             </li>
           )

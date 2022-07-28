@@ -8,6 +8,10 @@ function ContactsView() {
   //With useEffect, load the contact when params changes
   //and update contact state
 
+  const {id} = useParams()
+
+  
+
   if (!contact) {
     return <p>Loading</p>
   }
